@@ -1,0 +1,13 @@
+Knowledge (helpful but not required to skim results):
+- Basic Python and Jupyter Notebook usage
+- Basic ML concepts: train/test split, cross‑validation, accuracy/F1/ROC‑AUC
+
+Environment (to run locally):
+- Python 3.10+ (or the version in environment.yml)
+- Jupyter or JupyterLab
+- Packages in requirements.txt (install with `pip install -r requirements.txt`)
+- Dataset access: place the class dataset in data/raw/ (not included in the repo)
+- Hardware: standard laptop is fine (~2–4GB RAM for this workflow)
+
+View‑only (no setup):
+- You can read the README and open the notebook on GitHub or nbviewer without installing anything.

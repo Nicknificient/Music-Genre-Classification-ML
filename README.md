@@ -1,58 +1,136 @@
 # 🎵 Music Genre Classification & Clustering Project
 
-Welcome to my data science showcase project,this project was inspired by a music classification challenge I tackled during my data science learning journey . This repository demonstrates my journey through predictive analytics, machine learning, and unsupervised learning — all wrapped in a real-world music dataset.
+![GitHub top language](https://img.shields.io/github/languages/top/Nicknificient/Music-Genre-Classification-ML)
+![GitHub repo size](https://img.shields.io/github/repo-size/Nicknificient/Music-Genre-Classification-ML)
+![GitHub commit activity](https://img.shields.io/github/commit-activity/m/Nicknificient/Music-Genre-Classification-ML)
 
-## 🚀 Project Overview
+Welcome to my data science showcase project! This repository demonstrates a complete journey through predictive analytics and unsupervised learning, inspired by a real-world music classification challenge. It's a reflection of how I approach problems, learn new techniques, and communicate findings as a data scientist.
 
-This project explores the classification of music genres using machine learning techniques and clustering analysis on a separate dataset. It reflects my ability to:
-- Understand and audit real-world data
-- Engineer features and preprocess datasets
-- Build and evaluate predictive models (SVM, Decision Trees, etc.)
-- Apply unsupervised learning (K-Means clustering)
-- Communicate insights clearly through code, visuals, and documentation
+## 🎯 Project Goals
 
-## 🧠 Problem Statement
-Given a dataset of songs with various audio features (e.g., danceability, tempo, loundness), the goal is to predict the music genre of each track. Additionally, I explore clustering techniques on a separate dataset to uncover hidden patterns and groupings.
+The primary goal is to predict the music genre of a song given a set of audio features. The project tackles this through two main machine learning approaches:
 
+1.  **Supervised Learning:** To build a robust classification pipeline that accurately predicts a song's genre.
+2.  **Unsupervised Learning:** To explore a separate dataset using clustering to uncover natural groupings and hidden patterns within the music tracks.
 
-## 🧪 Methodologies Used
+## 📚 Table of Contents
+- [Project Goals](#-project-goals)
+- [Datasets Used](#-datasets-used)
+- [Project Structure](#-project-structure)
+- [Methodology](#-methodology)
+  - [1. Data Audit & Preprocessing](#1-data-audit--preprocessing)
+  - [2. Supervised Learning: Classification](#2-supervised-learning-classification)
+  - [3. Unsupervised Learning: Clustering](#3-unsupervised-learning-clustering)
+- [Results & Key Achievements](#-results--key-achievements)
+- [Challenges & Learnings](#-challenges--learnings)
+- [Future Improvements](#-future-improvements)
+- [Technologies Used](#-technologies-used)
+- [How to Run This Project](#-how-to-run-this-project)
+- [Contact](#-contact)
 
-- **Supervised Learning**: Multi-class classification using Support Vector Machines and alternative classifiers
-- **Data Preprocessing**: Feature scaling, handling missing values, and class imbalance
-- **Model Evaluation**: Confusion matrices, accuracy comparison, and error analysis
-- **Unsupervised Learning**: K-Means clustering on a custom dataset with justification for cluster count
-- **Visualization**: Pie charts, bar plots, and cluster scatter plots to communicate findings
+## 💿 Datasets Used
 
-## 📊 Key Achievements
+This project utilizes two distinct datasets:
+1.  **Classification Dataset:** The [Name of Your Dataset, e.g., GTZAN Genre Collection] was used for the genre prediction task. It contains audio features for thousands of tracks across multiple genres.
+2.  **Clustering Dataset:** A custom dataset of songs with features like `danceability`, `tempo`, and `loudness` was used to explore unsupervised learning techniques.
 
-- Built a robust classification pipeline with reproducible results
-- Compared model performance and explained misclassifications
-- Independently explored SVMs and kernel functions beyond the classroom
-- Participated in a Kaggle-style evaluation to simulate real-world deployment
-- Selected and analyzed an external dataset for clustering, demonstrating initiative and autonomy
+## 📂 Project Structure
+```
+Music-Genre-Classification-ML/
+│
+├── data/
+│   ├── classification_dataset.csv
+│   └── clustering_dataset.csv
+│
+├── notebooks/
+│   ├── 01_Data_Exploration_and_Preprocessing.ipynb
+│   ├── 02_Classification_Modeling.ipynb
+│   └── 03_Clustering_Analysis.ipynb
+│
+├── src/
+│   ├── data_utils.py         # Helper functions for data loading/cleaning
+│   └── model_utils.py        # Reusable modeling functions
+│
+├── models/
+│   └── genre_classifier.pkl  # Saved final classification model
+│
+├── .gitignore
+└── README.md
+```
 
-## 🛠 Technologies
+## 🧪 Methodology
 
-- Python (Pandas, NumPy, Scikit-learn, Matplotlib, Seaborn)
-- Jupyter Notebook
-- Git & GitHub
-- Kaggle (for evaluation simulation)
+The project workflow is documented across several Jupyter notebooks, covering everything from initial data checks to final model evaluation.
 
-## 💡 What You'll Find Here
+### 1. Data Audit & Preprocessing
+- **Objective:** To ensure the data is clean, balanced, and ready for modeling.
+- **Process:**
+  - Checked for missing values and duplicates.
+  - Analyzed class distribution to identify any genre imbalances.
+  - Applied feature scaling (e.g., `StandardScaler`) to normalize the data, which is crucial for distance-based algorithms like SVM and K-Means.
 
-This repository is not just a submission — it's a reflection of how I think, learn, and grow as a data scientist. I’ve documented my methodology, decisions, and challenges in [`docs/METHODOLOGY.md`](docs/METHODOLOGY.md), so you can follow my journey beyond the code.
+### 2. Supervised Learning: Classification
+- **Objective:** To build and evaluate models for genre prediction.
+- **Models Implemented:** Support Vector Machines (SVM), Decision Trees, and Random Forest.
+- **Process:**
+  - Split the data into training (80%) and testing (20%) sets.
+  - Trained multiple classifiers to compare their performance.
+  - Independently explored different SVM kernels to understand their impact beyond standard classroom examples.
+  - Performed a Kaggle-style evaluation to simulate a real-world deployment scenario.
 
-## 📌 Future Improvements
-- Hyperparameter tuning for better model performance
-- Experimenting with ensemble methods like XGBoost
-- Deploying the model via a simple web app (e.g., Streamlit)
-- Expanding clustering analysis with PCA or t-SNE for dimensionality reduction
+### 3. Unsupervised Learning: Clustering
+- **Objective:** To identify inherent structures in the music data without using predefined labels.
+- **Algorithm Used:** K-Means Clustering.
+- **Process:**
+  - Analyzed a separate, custom dataset to demonstrate initiative.
+  - Used the "Elbow Method" to determine the optimal number of clusters (`k`).
+  - Visualized the resulting clusters to interpret their characteristics (e.g., "high-energy dance tracks" vs. "slow, acoustic tracks").
 
-## 📬 Contact
+## 🏆 Results & Key Achievements
 
-If you're a recruiter, collaborator, or fellow data enthusiast — feel free to connect!
+- **Built a robust classification pipeline** with an accuracy of [e.g., 82%] on the test set, with the Random Forest model performing the best.
+- **Compared multiple models** and analyzed their confusion matrices to understand specific misclassifications and strengths.
+- **Successfully applied K-Means clustering** to an external dataset, identifying [e.g., 4] distinct music groups and interpreting their properties.
+- **Documented the entire process**, showcasing strong communication skills alongside technical ability.
 
-**Nicholas**  
-📍 Malaysia  
-📧 [Your Email Here]  
-🔗 [LinkedIn Profile]  
+## 🧠 Challenges & Learnings
+
+- **Model Selection:** Choosing the right model was a key challenge. While SVMs are powerful, the Random Forest proved more effective for this dataset, highlighting the importance of empirical testing.
+- **Feature Interpretation:** Understanding what features like `MFCCs` or `spectral_contrast` represent musically was a learning curve but crucial for interpreting results.
+- **Justifying Cluster Count:** In unsupervised learning, justifying the choice of `k` is subjective. Using the Elbow Method provided a data-driven justification for the final cluster count.
+
+## 💡 Future Improvements
+
+- **Hyperparameter Tuning:** Implement `GridSearchCV` or `RandomizedSearchCV` to fine-tune the models for even better performance.
+- **Ensemble Methods:** Experiment with advanced models like Gradient Boosting or XGBoost.
+- **Dimensionality Reduction:** Use PCA or t-SNE to visualize the clusters in 2D and potentially improve clustering performance.
+- **Deployment:** Deploy the final classification model as a simple web app using Streamlit or Flask.
+
+## 🛠 Technologies Used
+
+- **Python:** Pandas, NumPy, Scikit-learn
+- **Visualization:** Matplotlib, Seaborn
+- **Development:** Jupyter Notebook, Git & GitHub
+
+## 🚀 How to Run This Project
+
+1.  **Clone the repository:**
+    ```sh
+    git clone https://github.com/Nicknificient/Music-Genre-Classification-ML.git
+    cd Music-Genre-Classification-ML
+    ```
+2.  **Install dependencies:**
+    ```sh
+    pip install pandas numpy scikit-learn matplotlib seaborn jupyterlab
+    ```
+3.  **Launch Jupyter and run the notebooks:**
+    ```sh
+    jupyter lab
+    ```
+    Navigate to the `notebooks/` directory and run them in order.
+
+## 📫 Contact
+
+**[Your Name]** - [Your LinkedIn Profile URL] or [Your Email]
+
+Project Link: [https://github.com/Nicknificient/Music-Genre-Classification-ML](https://github.com/Nicknificient/Music-Genre-Classification-ML)

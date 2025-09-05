@@ -1,136 +1,108 @@
-# 🎵 Music Genre Classification & Clustering Project
+Music Genre Classification using Machine Learning
+Project Overview
+This project demonstrates the application of machine learning techniques to classify music genres using Spotify audio features. It implements supervised learning models (Support Vector Machines and Random Forest) to predict music genres based on acoustic properties. The project showcases a complete data science workflow including data auditing, preprocessing, feature engineering, model training, and evaluation.
 
-![GitHub top language](https://img.shields.io/github/languages/top/Nicknificient/Music-Genre-Classification-ML)
-![GitHub repo size](https://img.shields.io/github/repo-size/Nicknificient/Music-Genre-Classification-ML)
-![GitHub commit activity](https://img.shields.io/github/commit-activity/m/Nicknificient/Music-Genre-Classification-ML)
+Table of Contents
+Introduction
+Dataset
+Installation
+Project Structure
+Methodology
+Results
+Future Improvements
+Technologies Used
+Introduction
+Music genre classification is a fundamental problem in music information retrieval. This project leverages Spotify's audio features to develop machine learning models that can automatically classify tracks into different music genres. By analyzing acoustic properties like tempo, energy, and danceability, the models learn to distinguish between different musical styles.
 
-Welcome to my data science showcase project! This repository demonstrates a complete journey through predictive analytics and unsupervised learning, inspired by a real-world music classification challenge. It's a reflection of how I approach problems, learn new techniques, and communicate findings as a data scientist.
+Dataset
+The project uses a dataset containing Spotify audio features for approximately 26,000 tracks across 10 music genres. Each track is represented by features including:
 
-## 🎯 Project Goals
+Acousticness
+Danceability
+Energy
+Instrumentalness
+Liveness
+Loudness
+Speechiness
+Tempo
+Valence
+The dataset is well-balanced with each genre representing approximately 10% of the samples.
 
-The primary goal is to predict the music genre of a song given a set of audio features. The project tackles this through two main machine learning approaches:
+Installation
+To run this project, you'll need Python 3.6+ and the following libraries:
 
-1.  **Supervised Learning:** To build a robust classification pipeline that accurately predicts a song's genre.
-2.  **Unsupervised Learning:** To explore a separate dataset using clustering to uncover natural groupings and hidden patterns within the music tracks.
+bash
+pip install pandas numpy scikit-learn matplotlib seaborn category_encoders jupyter
+Project Structure
+The project is organized into the following main sections:
 
-## 📚 Table of Contents
-- [Project Goals](#-project-goals)
-- [Datasets Used](#-datasets-used)
-- [Project Structure](#-project-structure)
-- [Methodology](#-methodology)
-  - [1. Data Audit & Preprocessing](#1-data-audit--preprocessing)
-  - [2. Supervised Learning: Classification](#2-supervised-learning-classification)
-  - [3. Unsupervised Learning: Clustering](#3-unsupervised-learning-clustering)
-- [Results & Key Achievements](#-results--key-achievements)
-- [Challenges & Learnings](#-challenges--learnings)
-- [Future Improvements](#-future-improvements)
-- [Technologies Used](#-technologies-used)
-- [How to Run This Project](#-how-to-run-this-project)
-- [Contact](#-contact)
+Data Audit: Thorough examination of the dataset including shape, missing values, duplicates, and class distribution.
+Data Wrangling: Preprocessing steps including:
+Dropping non-predictive columns
+Encoding categorical variables using target encoding
+Scaling numerical features
+Model Building: Training and optimizing two models:
+Support Vector Machine (SVM)
+Random Forest Classifier
+Evaluation: Comprehensive evaluation using:
+Cross-validation
+Test set performance metrics
+Classification reports
+Confusion matrices
+Methodology
+Data Preprocessing
+Examined dataset for missing values and duplicates (none found)
+Analyzed class distribution (balanced across 10 genres)
+Encoded artist names using target encoding
+Scaled numerical features using RobustScaler
+Performed feature selection to identify most predictive attributes
+Model Training
+The project implements two classification models:
 
-## 💿 Datasets Used
+Support Vector Machine (SVM):
 
-This project utilizes two distinct datasets:
-1.  **Classification Dataset:** The [Name of Your Dataset, e.g., GTZAN Genre Collection] was used for the genre prediction task. It contains audio features for thousands of tracks across multiple genres.
-2.  **Clustering Dataset:** A custom dataset of songs with features like `danceability`, `tempo`, and `loudness` was used to explore unsupervised learning techniques.
+Used RBF kernel
+Hyperparameters: C=5, gamma=0.05
+Cross-validated with 5-fold CV
+Random Forest Classifier:
 
-## 📂 Project Structure
-```
-Music-Genre-Classification-ML/
-│
-├── data/
-│   ├── classification_dataset.csv
-│   └── clustering_dataset.csv
-│
-├── notebooks/
-│   ├── 01_Data_Exploration_and_Preprocessing.ipynb
-│   ├── 02_Classification_Modeling.ipynb
-│   └── 03_Clustering_Analysis.ipynb
-│
-├── src/
-│   ├── data_utils.py         # Helper functions for data loading/cleaning
-│   └── model_utils.py        # Reusable modeling functions
-│
-├── models/
-│   └── genre_classifier.pkl  # Saved final classification model
-│
-├── .gitignore
-└── README.md
-```
+Used 100 trees
+Cross-validated with 5-fold CV
+Identified most important features
+Results
+Model Performance
+SVM:
+Cross-validation accuracy: 68.26% (±1.05%)
+Test accuracy: 67.51%
+Random Forest:
+Cross-validation accuracy: 71.28% (±1.53%)
+Test accuracy: 71.03%
+Random Forest outperformed SVM across all metrics, suggesting its ability to better capture the complex relationships between audio features and music genres.
 
-## 🧪 Methodology
+Feature Importance
+The most significant audio features for genre classification were:
 
-The project workflow is documented across several Jupyter notebooks, covering everything from initial data checks to final model evaluation.
+Artist name (encoded)
+Popularity
+Acousticness
+Danceability
+Energy
+Instrumentalness
+Loudness
+Speechiness
+Future Improvements
+Potential enhancements to this project could include:
 
-### 1. Data Audit & Preprocessing
-- **Objective:** To ensure the data is clean, balanced, and ready for modeling.
-- **Process:**
-  - Checked for missing values and duplicates.
-  - Analyzed class distribution to identify any genre imbalances.
-  - Applied feature scaling (e.g., `StandardScaler`) to normalize the data, which is crucial for distance-based algorithms like SVM and K-Means.
-
-### 2. Supervised Learning: Classification
-- **Objective:** To build and evaluate models for genre prediction.
-- **Models Implemented:** Support Vector Machines (SVM), Decision Trees, and Random Forest.
-- **Process:**
-  - Split the data into training (80%) and testing (20%) sets.
-  - Trained multiple classifiers to compare their performance.
-  - Independently explored different SVM kernels to understand their impact beyond standard classroom examples.
-  - Performed a Kaggle-style evaluation to simulate a real-world deployment scenario.
-
-### 3. Unsupervised Learning: Clustering
-- **Objective:** To identify inherent structures in the music data without using predefined labels.
-- **Algorithm Used:** K-Means Clustering.
-- **Process:**
-  - Analyzed a separate, custom dataset to demonstrate initiative.
-  - Used the "Elbow Method" to determine the optimal number of clusters (`k`).
-  - Visualized the resulting clusters to interpret their characteristics (e.g., "high-energy dance tracks" vs. "slow, acoustic tracks").
-
-## 🏆 Results & Key Achievements
-
-- **Built a robust classification pipeline** with an accuracy of [e.g., 82%] on the test set, with the Random Forest model performing the best.
-- **Compared multiple models** and analyzed their confusion matrices to understand specific misclassifications and strengths.
-- **Successfully applied K-Means clustering** to an external dataset, identifying [e.g., 4] distinct music groups and interpreting their properties.
-- **Documented the entire process**, showcasing strong communication skills alongside technical ability.
-
-## 🧠 Challenges & Learnings
-
-- **Model Selection:** Choosing the right model was a key challenge. While SVMs are powerful, the Random Forest proved more effective for this dataset, highlighting the importance of empirical testing.
-- **Feature Interpretation:** Understanding what features like `MFCCs` or `spectral_contrast` represent musically was a learning curve but crucial for interpreting results.
-- **Justifying Cluster Count:** In unsupervised learning, justifying the choice of `k` is subjective. Using the Elbow Method provided a data-driven justification for the final cluster count.
-
-## 💡 Future Improvements
-
-- **Hyperparameter Tuning:** Implement `GridSearchCV` or `RandomizedSearchCV` to fine-tune the models for even better performance.
-- **Ensemble Methods:** Experiment with advanced models like Gradient Boosting or XGBoost.
-- **Dimensionality Reduction:** Use PCA or t-SNE to visualize the clusters in 2D and potentially improve clustering performance.
-- **Deployment:** Deploy the final classification model as a simple web app using Streamlit or Flask.
-
-## 🛠 Technologies Used
-
-- **Python:** Pandas, NumPy, Scikit-learn
-- **Visualization:** Matplotlib, Seaborn
-- **Development:** Jupyter Notebook, Git & GitHub
-
-## 🚀 How to Run This Project
-
-1.  **Clone the repository:**
-    ```sh
-    git clone https://github.com/Nicknificient/Music-Genre-Classification-ML.git
-    cd Music-Genre-Classification-ML
-    ```
-2.  **Install dependencies:**
-    ```sh
-    pip install pandas numpy scikit-learn matplotlib seaborn jupyterlab
-    ```
-3.  **Launch Jupyter and run the notebooks:**
-    ```sh
-    jupyter lab
-    ```
-    Navigate to the `notebooks/` directory and run them in order.
-
-## 📫 Contact
-
-**[Your Name]** - [Your LinkedIn Profile URL] or [Your Email]
-
-Project Link: [https://github.com/Nicknificient/Music-Genre-Classification-ML](https://github.com/Nicknificient/Music-Genre-Classification-ML)
+Implementing deep learning models (CNNs, RNNs)
+Incorporating additional audio features or raw audio analysis
+Exploring more advanced feature engineering techniques
+Implementing ensemble methods combining multiple models
+Adding a web interface for real-time genre prediction
+Technologies Used
+Python: Primary programming language
+Pandas & NumPy: Data manipulation and analysis
+Scikit-learn: Machine learning algorithms and evaluation
+Category Encoders: Advanced categorical encoding
+Matplotlib & Seaborn: Data visualization
+Jupyter Notebook: Interactive development environment
+This project was developed as part of a machine learning portfolio to demonstrate skills in data analysis, feature engineering, and classification algorithms.

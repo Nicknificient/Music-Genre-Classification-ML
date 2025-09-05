@@ -115,6 +115,54 @@ Potential enhancements to this project could include:
 - **Matplotlib & Seaborn**: Data visualization
 - **Jupyter Notebook**: Interactive development environment
 
+
+
+## K-means Clustering Analysis on Red Wine Quality Dataset
+
+In addition to the music genre classification, this project includes a K-means clustering analysis on the Red Wine Quality dataset to demonstrate clustering techniques.
+
+### Dataset Information
+
+The Red Wine Quality dataset contains physicochemical properties of red wine samples and their quality ratings. The dataset includes:
+- 1,599 samples of red wine
+- 11 chemical properties as features (such as acidity, sugar, pH, alcohol content)
+- Quality ratings on a scale of 0-10
+
+### Analysis Process
+
+The K-means clustering implementation follows these steps:
+
+1. **Data Preprocessing**
+   - Loading the red wine quality dataset
+   - Standardizing features to ensure equal contribution to clustering
+   - Exploring data distribution and correlations
+
+2. **Optimal Cluster Determination**
+   - Using the Elbow Method to identify the optimal number of clusters
+   - Calculating Silhouette Scores to validate clustering quality
+   - Visualizing results to determine the best k value
+
+3. **Cluster Analysis**
+   - Applying K-means with the optimal number of clusters
+   - Reducing dimensionality with PCA for visualization
+   - Plotting clusters and comparing with original quality ratings
+   - Analyzing feature importance for each cluster
+
+### Key Findings
+
+- Clusters reveal natural groupings in wine samples based on chemical properties
+- Visualization shows how these clusters relate to the original quality ratings
+- Analysis identifies which chemical properties most strongly influence cluster formation
+- Correlation patterns within clusters provide insights into quality determinants
+
+### Visualizations
+
+- PCA plots showing cluster distributions
+- Feature importance charts for each cluster
+- Quality distribution across clusters
+- Correlation heatmaps for each cluster
+
+This additional analysis demonstrates how unsupervised learning techniques can be used to discover hidden patterns in datasets without predefined classifications.
 ---
 
 This project was developed as part of a machine learning portfolio to demonstrate skills in data analysis, feature engineering, and classification algorithms.

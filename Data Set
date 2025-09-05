@@ -1,6 +1,9 @@
-# Music Genre Classification Dataset
-The dataset for this project is not stored in this repository due to its size.
-To obtain the dataset, please contact me directly.
+## 📂 Dataset Access
 
-#RedWine Quality Dataset use for K-mean Clustering
-here the link::https://www.kaggle.com/datasets/uciml/red-wine-quality-cortez-et-al-2009
+The dataset used in this project is stored in Google Drive for easy access.  
+You can view or download it directly using the link below:
+
+🔗 [https://drive.google.com/file/d/1GvlaiNTeg2x8qgn_hSts7Y7d3bskm42H/view?usp=sharing] use for music genre classification
+
+🔗[https://www.kaggle.com/datasets/uciml/red-wine-quality-cortez-et-al-2009] use for K mean clustering
+
